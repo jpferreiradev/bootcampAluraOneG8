@@ -1,4 +1,4 @@
-import javax.swing.*;
+package javaCriandoSuaPrimeiraApp;
 
 public class Teste {
     public static void main(String[] args) {
@@ -15,17 +15,19 @@ public class Teste {
         double media = (9.8 + 6.3 + 8.0) / 3;
         System.out.println(media);
 
+
+        // Nova forma adicionada no Java 15
         String sinopse;
         sinopse = """
-                Filme Top Gun
-                Filme de aventura com galã dos anos 80
-                Muito bom!
-                Ano de lançamento
-               """ + anoDeLancamento;
+                 Filme Top Gun
+                 Filme de aventura com galã dos anos 80
+                 Muito bom!
+                 Ano de lançamento
+                """ + anoDeLancamento;
         System.out.println(sinopse);
 
-
-
+        int classificacao = (int) media / 2;
+        System.out.println(classificacao);
 
 
     }
