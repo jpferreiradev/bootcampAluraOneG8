@@ -1,5 +1,6 @@
 package javaAplicandoOO.br.com.alura.screenmatch.application;
 
+import javaAplicandoOO.br.com.alura.screenmatch.calculo.calculadoraDeTempo;
 import javaAplicandoOO.br.com.alura.screenmatch.entities.Filme;
 import javaAplicandoOO.br.com.alura.screenmatch.entities.Serie;
 
@@ -10,6 +11,7 @@ public class Program {
         filme.setNome("O poderoso chefão");
         filme.setAnoLancanmento(1970);
         filme.setDuracaoEmMinutos(180);
+        System.out.println("Duração do filme: " + filme.getDuracaoEmMinutos());
 
 
         filme.exibeFixaTecnica();
@@ -27,9 +29,26 @@ public class Program {
         lost.exibeFixaTecnica();
         lost.setTemporada(10);
         lost.setEpisodiosPorTemporada(10);
+        lost.setMinutoPorEpisodio(50);
+        System.out.println("Duração para maratonar Lost: " + lost.getDuracaoEmMinutos());
 
 
+        Filme outroFilme = new Filme();
+        outroFilme.setNome("Avatar");
+        outroFilme.setAnoLancanmento(2023);
+        outroFilme.setDuracaoEmMinutos(200);
+
+
+
+        calculadoraDeTempo calculadora = new calculadoraDeTempo();
+        calculadora.inclui(filme);
+        calculadora.inclui(outroFilme);
+        //calculadora.inclui(lost);
+        System.out.println(calculadora.getTempoTotal());
 
 
     }
 }
+
+
+
