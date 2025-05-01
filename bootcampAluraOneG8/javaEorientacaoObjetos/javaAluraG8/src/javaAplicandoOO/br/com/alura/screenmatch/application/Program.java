@@ -43,8 +43,10 @@ public class Program {
         calculadoraDeTempo calculadora = new calculadoraDeTempo();
         calculadora.inclui(filme);
         calculadora.inclui(outroFilme);
-        //calculadora.inclui(lost);
+        calculadora.inclui(lost);
         System.out.println(calculadora.getTempoTotal());
+
+
 
 
     }

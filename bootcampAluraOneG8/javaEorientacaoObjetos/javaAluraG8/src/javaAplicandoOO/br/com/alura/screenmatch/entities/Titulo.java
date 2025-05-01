@@ -66,4 +66,5 @@ public class Titulo {
     public double pegaMedia() {
         return somaDasAvaliacoes / totalDeAvaliacoes;
     }
+
 }
