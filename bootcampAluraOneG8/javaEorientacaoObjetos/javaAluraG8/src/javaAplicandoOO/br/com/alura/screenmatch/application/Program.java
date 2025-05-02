@@ -1,6 +1,8 @@
 package javaAplicandoOO.br.com.alura.screenmatch.application;
 
+import javaAplicandoOO.br.com.alura.screenmatch.calculo.FiltroRecomendacao;
 import javaAplicandoOO.br.com.alura.screenmatch.calculo.calculadoraDeTempo;
+import javaAplicandoOO.br.com.alura.screenmatch.entities.Episodio;
 import javaAplicandoOO.br.com.alura.screenmatch.entities.Filme;
 import javaAplicandoOO.br.com.alura.screenmatch.entities.Serie;
 
@@ -45,6 +47,18 @@ public class Program {
         calculadora.inclui(outroFilme);
         calculadora.inclui(lost);
         System.out.println(calculadora.getTempoTotal());
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtro(filme);
+        filtro.filtro(outroFilme);
+
+        Episodio episodio = new Episodio();
+        episodio.setNumero(7);
+        episodio.setSerie(lost);
+        episodio.setTotalVisualizacoes(300);
+        filtro.filtro(episodio);
+
+
 
 
 
