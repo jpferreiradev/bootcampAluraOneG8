@@ -6,6 +6,8 @@ import javaAplicandoOO.br.com.alura.screenmatch.entities.Episodio;
 import javaAplicandoOO.br.com.alura.screenmatch.entities.Filme;
 import javaAplicandoOO.br.com.alura.screenmatch.entities.Serie;
 
+import java.util.ArrayList;
+
 public class Program {
     public static void main(String[] args) {
 
@@ -41,7 +43,6 @@ public class Program {
         outroFilme.setDuracaoEmMinutos(200);
 
 
-
         calculadoraDeTempo calculadora = new calculadoraDeTempo();
         calculadora.inclui(filme);
         calculadora.inclui(outroFilme);
@@ -58,9 +59,28 @@ public class Program {
         episodio.setTotalVisualizacoes(300);
         filtro.filtro(episodio);
 
+        // Variavel referencia esquerda, na direita é criação do objeto;
+        // Filme filmeDoPaulo = new Filme(); --> Nova forma aprendida na utilização de variavel
+        var filmeDoPaulo = new Filme();
+        filmeDoPaulo.setDuracaoEmMinutos(200);
+        filmeDoPaulo.setNome("Dogville");
+        filmeDoPaulo.setAnoLancanmento(2003);
+        filmeDoPaulo.avalia(10);
+
+        // ---> Arraylist
 
 
+        // Criação do ArrayList e adicionando os filmes na lista
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(filmeDoPaulo);
+        listaDeFilmes.add(filme);
+        listaDeFilmes.add(outroFilme);
 
+        System.out.println();
+        System.out.println();
+        System.out.println("Tamanho da lista de filmes:" + listaDeFilmes.size()); // Tamanho da lista
+        System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome()); // Primeiro elemento da lista
+        System.out.println(listaDeFilmes);
 
 
     }
