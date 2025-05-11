@@ -8,6 +8,11 @@ public class Serie extends Titulo {
     private int minutoPorEpisodio;
 
 
+    public Serie(String nome, int anoLancamento) {
+        super(nome, anoLancamento); // Chmando o construtor da superclass;
+
+    }
+
     public int getTemporada() {
         return temporadas;
     }
