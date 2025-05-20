@@ -1,6 +1,6 @@
 package javaAplicandoOO.br.com.alura.screenmatch.entities;
 
-public class Titulo {
+public class Titulo implements Comparable<Titulo> {
 
     private String nome;
     private int anoLancanmento;
@@ -48,10 +48,11 @@ public class Titulo {
     }
 
     // Método acessor
-    public int getTotalDeAvaliacoes(){
+    public int getTotalDeAvaliacoes() {
         return totalDeAvaliacoes;
     }
-    public double getSomaDasAvaliacoes(){
+
+    public double getSomaDasAvaliacoes() {
         return somaDasAvaliacoes;
     }
 
@@ -71,4 +72,10 @@ public class Titulo {
         return somaDasAvaliacoes / totalDeAvaliacoes;
     }
 
+
+    // Isso aqui eu não entendi
+    @Override
+    public int compareTo(Titulo outroTitulo) {
+        return this.getNome().compareTo(outroTitulo.getNome());
+    }
 }

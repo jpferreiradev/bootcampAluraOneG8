@@ -5,7 +5,7 @@ import javaAplicandoOO.br.com.alura.screenmatch.entities.Serie;
 import javaAplicandoOO.br.com.alura.screenmatch.entities.Titulo;
 
 import java.awt.image.AreaAveragingScaleFilter;
-import java.util.ArrayList;
+import java.util.*;
 
 public class PrincipalComListas {
     public static void main(String[] args) {
@@ -20,7 +20,9 @@ public class PrincipalComListas {
 
         Filme f1 = filmeDoPaulo; // Aqui você não está copiando o objeto e sim a referencia do Objeto
 
-        ArrayList<Titulo> lista = new ArrayList<>(); // Aqui é mostrado o Generics
+        //ArrayList<Titulo> lista = new ArrayList<>(); // Aqui é mostrado o Generics
+        //List<Titulo> lista = new ArrayList<>();
+        List<Titulo> lista = new LinkedList<>();
         lista.add(filmeDoPaulo);
         lista.add(filme);
         lista.add(outroFilme);
@@ -36,6 +38,33 @@ public class PrincipalComListas {
             }
 
         }
+
+        ArrayList<String> buscaPorArtista = new ArrayList<>();
+        buscaPorArtista.add("Adam Sandler");
+        buscaPorArtista.add("Paulo");
+        buscaPorArtista.add("Jacqueline");
+        System.out.println(buscaPorArtista);
+
+        Collections.sort(buscaPorArtista);
+        System.out.println("Depois da ordenação: ");
+        System.out.println(buscaPorArtista);
+
+
+        System.out.println("Aqui implementou o Comparable, ele ordena a lista ");
+        Collections.sort(lista);
+        System.out.println("Lista de titulos ordenados: ");
+        System.out.println(lista);
+
+        //System.out.println("Ordenando por ano, USANDO O COMPARATOR: ");
+
+        lista.sort(Comparator.comparing(Titulo::getAnoLancanmento)); // Estude essa linha
+        System.out.println("Ordenando por ano, USANDO O COMPARATOR: ");
+        System.out.println(lista);
+
+
+
+
+
 
 
     }
