@@ -1,37 +1,43 @@
 package desafioAppCompras.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cartao {
 
-    private String descricao;
-    private double valorCompra;
+    private double limite;
+    private double saldo;
+    private List<Compra> compras;
 
-    public Cartao(String descricao, double valorCompra) {
-        this.descricao = descricao;
-        this.valorCompra = valorCompra;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public double getValorCompra() {
-        return valorCompra;
-    }
-
-    public void setValorCompra(double valorCompra) {
-        this.valorCompra = valorCompra;
-    }
-
-    @Override
-    public String toString() {
-        return "**********************" +
-                "COMPRAS REALIZADAS\n" +
-                this.getDescricao() + " - " + " R$"+ this.getValorCompra()+
-                 "\n*********************";
+    public Cartao(double limite) {
+        this.limite = limite;
+        this.saldo = limite;
+        this.compras = new ArrayList<>();
 
     }
+
+    public boolean lancaCompra(Compra compra) {
+        if (this.saldo > compra.getValor()) {
+            this.saldo -= compra.getValor();
+            this.compras.add(compra);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public double getLimite() {
+        return limite;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public List<Compra> getCompras() {
+        return compras;
+    }
+
+
 }
+

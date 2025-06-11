@@ -1,0 +1,65 @@
+/*
+
+-- Aqui nesta classe Program
+   Scanner scan = new Scanner(System.in);
+
+
+        ArrayList<Cartao> compras = new ArrayList<>();
+
+
+        System.out.println("Digite 0 para sair ou 1 para continuar:  ");
+        int opcao = scan.nextInt();
+
+        do {
+            System.out.print("Digite o limite do cartão: ");
+            double limite = scan.nextDouble();
+            System.out.print("Digite a descrição da compra: ");
+            String descricao = scan.nextLine();
+            scan.nextLine();
+            System.out.print("Digite o valor da compra: ");
+            double valor = scan.nextDouble();
+            compras.add(new Cartao(descricao, valor));
+            opcao = scan.nextInt();
+        } while (opcao != 0);
+
+        for (Cartao c : compras) {
+            System.out.println(c);
+        }
+ */
+
+ --
+ Aqui nesta classe Cartão
+ /*
+   private String descricao;
+     private double valorCompra;
+
+     public Cartao(String descricao, double valorCompra) {
+         this.descricao = descricao;
+         this.valorCompra = valorCompra;
+     }
+
+     public String getDescricao() {
+         return descricao;
+     }
+
+     public void setDescricao(String descricao) {
+         this.descricao = descricao;
+     }
+
+     public double getValorCompra() {
+         return valorCompra;
+     }
+
+     public void setValorCompra(double valorCompra) {
+         this.valorCompra = valorCompra;
+     }
+
+     @Override
+     public String toString() {
+         return "**********************" +
+                 "COMPRAS REALIZADAS\n" +
+                 this.getDescricao() + " - " + " R$"+ this.getValorCompra()+
+                  "\n*********************";
+
+     }
+  */

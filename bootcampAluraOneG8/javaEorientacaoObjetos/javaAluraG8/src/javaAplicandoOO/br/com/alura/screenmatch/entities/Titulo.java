@@ -1,8 +1,13 @@
 package javaAplicandoOO.br.com.alura.screenmatch.entities;
 
+import com.google.gson.annotations.SerializedName;
+import javaAplicandoOO.br.com.alura.screenmatch.TituloOmdb;
+
 public class Titulo implements Comparable<Titulo> {
 
+    @SerializedName("Title")// Anotação, aqui é o nome que está vindo nesse json
     private String nome;
+    @SerializedName("Year")
     private int anoLancanmento;
     private boolean incluidoNoPlano;
     private double somaDasAvaliacoes;
@@ -12,6 +17,12 @@ public class Titulo implements Comparable<Titulo> {
     public Titulo(String nome, int anoLancanmento) {
         this.nome = nome;
         this.anoLancanmento = anoLancanmento;
+    }
+
+    public Titulo(TituloOmdb titulo) {
+        this.nome = titulo.title();
+        this.anoLancanmento = Integer.valueOf(titulo.year());
+        this.duracaoEmMinutos = Integer.valueOf(titulo.runtime().substring(0,2));
     }
 
     public String getNome() {
@@ -77,5 +88,12 @@ public class Titulo implements Comparable<Titulo> {
     @Override
     public int compareTo(Titulo outroTitulo) {
         return this.getNome().compareTo(outroTitulo.getNome());
+    }
+
+    @Override
+    public String toString() {
+        return "nome='" + nome + '\'' +
+                ", anoLancanmento=" + anoLancanmento + ","
+                + "Duração: " +  duracaoEmMinutos;
     }
 }
