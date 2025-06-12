@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import javaAplicandoOO.br.com.alura.screenmatch.TituloOmdb;
 import javaAplicandoOO.br.com.alura.screenmatch.entities.Titulo;
+import javaAplicandoOO.br.com.alura.screenmatch.excecao.ErroDeConversaoDeAnoException;
 
 import java.io.IOException;
 import java.net.URI;
@@ -24,7 +25,12 @@ public class PrincipalComBusca {
         System.out.print("Digite um filme para busca: ");
         var busca = scan.nextLine();
 
-        String endereco = "https://www.omdbapi.com/?t=" + busca; // Aqui esta faltando 
+        //String endereco = "https://www.omdbapi.com/?t=" + busca + "&apikey=fe4a96d7"; // Aqui esta faltando
+        String endereco = "https://www.omdbapi.com/?t=" + busca.replace(" ", "+"); // apikey?
+
+        System.out.println(" Link do endereço: " + endereco);
+        System.out.println();
+
         try {
 
 
@@ -49,11 +55,14 @@ public class PrincipalComBusca {
             Titulo meuTitulo = new Titulo(titulo); // Erro foi aqui
             System.out.println("Título já convertido: ");
             System.out.println(meuTitulo);
+
         } catch (NumberFormatException e) {
             System.out.println("Aconteceu um erro:");
             System.out.println(e.getMessage());
         } catch (IllegalArgumentException e) {
             System.out.println("Algum erro de argumento na busca, verifique o endereço...");
+        } catch (ErroDeConversaoDeAnoException e) { // Exception personalizada;
+            System.out.println(e.getMessage());
         }
 
 
