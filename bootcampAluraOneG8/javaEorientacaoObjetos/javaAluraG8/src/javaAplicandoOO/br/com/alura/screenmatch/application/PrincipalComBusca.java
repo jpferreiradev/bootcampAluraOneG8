@@ -1,6 +1,5 @@
 package javaAplicandoOO.br.com.alura.screenmatch.application;
 
-
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -8,6 +7,7 @@ import javaAplicandoOO.br.com.alura.screenmatch.TituloOmdb;
 import javaAplicandoOO.br.com.alura.screenmatch.entities.Titulo;
 import javaAplicandoOO.br.com.alura.screenmatch.excecao.ErroDeConversaoDeAnoException;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -25,10 +25,10 @@ public class PrincipalComBusca {
         System.out.print("Digite um filme para busca: ");
         var busca = scan.nextLine();
 
-        //String endereco = "https://www.omdbapi.com/?t=" + busca + "&apikey=fe4a96d7"; // Aqui esta faltando
-        String endereco = "https://www.omdbapi.com/?t=" + busca.replace(" ", "+"); // apikey?
+        
 
         System.out.println(" Link do endereço: " + endereco);
+
         System.out.println();
 
         try {
@@ -55,6 +55,11 @@ public class PrincipalComBusca {
             Titulo meuTitulo = new Titulo(titulo); // Erro foi aqui
             System.out.println("Título já convertido: ");
             System.out.println(meuTitulo);
+
+            FileWriter escrita = new FileWriter("filmes.txt");// Escrever o arquivo
+            escrita.write(meuTitulo.toString()); // escreva no titulo
+            escrita.close(); // finalizou a escrita do arquivo;
+
 
         } catch (NumberFormatException e) {
             System.out.println("Aconteceu um erro:");
